@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "projects/project-01/main.html",
+    "href": "projects/project-01/main.html",
+    "title": "Project-01 My Custom Keymap using Kmonad",
+    "section": "",
+    "text": "Project-01 My Custom Keymap using Kmonad\nLet me tell you about this wonderful open source project Kmonad and how I use it\n\nMy kmonad config\nI have three layers (inspired by the lily58 split keyboard layout,\nand the Corne keyboard layout found at this website\nthe default: qwerty layer\nnumbers on the home row: lower layer\nleft down up right at hjkl: raise layer\n\n\nspace key has dual functionality with tap versus hold:\nin the qwerty layer:\ntap: acts as ordinary space key\nhold: (more than 150 millisecond) toggles into the lower layer\nIf we are already in raise layer or lower layer:\ntap the space key: acts as ordinary space key\nhold the space key: (more than 150 millisecond) toggles back to the qwerty layer (not sure if this is useful)\nF1 key switches between qwerty layer and lower layer\nF2 key switches between qwerty layer and raise layer\nNote that we don’t usually switch to the lower layer, we would rather just use our thumb to toggle, so upon release the space key, we automatically go back to the qwerty layer.\nI also put the modifier keys on the Home Row. Thus, I might make the left Shift key into a toggle key for raise layer, using the tap versus hold functionality.\n\n\n“Why would I ever want to do this to my keyboard?” you asked.\nwell, the philosophy is we could use the thumb more,\nuse left thumb to hold the space key to toggle into lower layer,\nthen the right hand could easily type\n`!@#$%`\n    `12345`\n        `_-+[{`,\nand upon releasing the space key, we automatically gets back to the qwerty layer.\nWhile use right thumb to hold the space key to toggle into lower layer,\nthen the left hand could easily type\n            `^&*()`\n                `67890`\n                    `}],.=`,\nand upon releasing the space key, we automatically gets back to the qwerty layer.\nHence, holding the space bar using our thumbs acts like Shift, but with different layers and keys."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "My-very-own-website",
+    "section": "",
+    "text": "welcome to my webpage!\nHere’s a link to my Blog for CSCI 0451 class taken during spring 2023: My_Flabbergasted_CSCI_0451_Blog\nHere’s a link to my other blog, which contains some miscellaneous items: A Blog I started that I called My Very Own\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProject-01 My Custom Keymap using Kmonad\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
