@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -115,13 +149,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#project-01-my-custom-keymap-using-kmonad" id="toc-project-01-my-custom-keymap-using-kmonad" class="nav-link active" data-scroll-target="#project-01-my-custom-keymap-using-kmonad">Project-01 My Custom Keymap using Kmonad</a>
-  <ul class="collapse">
-  <li><a href="#my-kmonad-config" id="toc-my-kmonad-config" class="nav-link" data-scroll-target="#my-kmonad-config">My kmonad config</a></li>
-  <li><a href="#space-key-has-dual-functionality-with-tap-versus-hold" id="toc-space-key-has-dual-functionality-with-tap-versus-hold" class="nav-link" data-scroll-target="#space-key-has-dual-functionality-with-tap-versus-hold">space key has dual functionality with <em>tap</em> versus <em>hold</em>:</a></li>
-  <li><a href="#home-row-modifiers" id="toc-home-row-modifiers" class="nav-link" data-scroll-target="#home-row-modifiers">Home Row Modifiers</a></li>
-  <li><a href="#why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked." id="toc-why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked." class="nav-link" data-scroll-target="#why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked."><em>“Why would I ever want to do this to my keyboard?” you asked.</em></a></li>
-  </ul></li>
+  <li><a href="#email-without-leaving-the-comfort-of-ones-terminal-using-mutt" id="toc-email-without-leaving-the-comfort-of-ones-terminal-using-mutt" class="nav-link active" data-scroll-target="#email-without-leaving-the-comfort-of-ones-terminal-using-mutt">Email without leaving the comfort of one’s terminal using Mutt</a></li>
   </ul>
 </nav>
     </div>
@@ -131,63 +159,60 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="project-01-my-custom-keymap-using-kmonad" class="level1">
-<h1>Project-01 My Custom Keymap using Kmonad</h1>
-<p>Let me tell you about this wonderful keyboard management tool called <a href="https://github.com/kmonad/kmonad">Kmonad</a> and how I use it <a href="https://github.com/Xianzhiwang1/i3-config/">(link)</a>.</p>
-<section id="my-kmonad-config" class="level3">
-<h3 class="anchored" data-anchor-id="my-kmonad-config">My kmonad config</h3>
-<p>In my own words, kmonad is a software level (contrast to firmware level) tool that let you to remap your keys however you want. In perticular, it allows you to define different <strong>layers</strong>, thus allowing the same key to produce different symbols when typed in different layers.</p>
-<p>I have three layers (inspired by the <code>lily58</code> split keyboard layout, and the <code>Corne</code> keyboard layout found at this <a href="https://mark.stosberg.com/markstos-corne-3x5-1-keyboard-layout/">website</a>), and they are as follows:</p>
-<ol type="1">
-<li><p>the default: <code>qwerty</code> layer</p></li>
-<li><p>numbers on the home row: <code>lower</code> layer</p></li>
-<li><p>left down up right at hjkl: <code>raise</code> layer</p></li>
-</ol>
-</section>
-<section id="space-key-has-dual-functionality-with-tap-versus-hold" class="level3">
-<h3 class="anchored" data-anchor-id="space-key-has-dual-functionality-with-tap-versus-hold">space key has dual functionality with <em>tap</em> versus <em>hold</em>:</h3>
-<p>in the <code>qwerty</code> layer:</p>
-<ul>
-<li><p>tap: acts as ordinary space key</p></li>
-<li><p>hold: (more than 150 millisecond) toggles into the <code>lower</code> layer</p></li>
-</ul>
-<p>If we are already in <code>raise</code> layer or <code>lower</code> layer:</p>
-<ul>
-<li><p>tap the space key: acts as ordinary space key</p></li>
-<li><p>hold the space key: (more than 150 millisecond) toggles back to the <code>qwerty</code> layer (not sure if this is useful)</p></li>
-</ul>
-<p>In addition to the <strong>toggle</strong> functionality, which means one must hold down the toggle key for the layer to remain activated, there is the <strong>switch</strong> functionality, which means we just need to tap the switch key once, and we are in the desired layer, without needing to hold it down the entire time. Then we can tap a another switch key (usually the same key) to swich back to the layer we started with. In my config, we have the following swich keys:</p>
-<ol type="1">
-<li><p><code>F1</code> key switches between <code>qwerty</code> layer and <code>lower</code> layer</p></li>
-<li><p><code>F2</code> key switches between <code>qwerty</code> layer and <code>raise</code> layer</p></li>
-</ol>
-<p><em>Note that we don’t usually <strong>switch</strong> to the <code>lower</code> layer, we would rather just use our thumb to <strong>toggle</strong>, so upon release the space key, we automatically go back to the <code>qwerty</code> layer.</em></p>
-<p>I also put the modifier keys on the Home Row. Thus, I might make the <code>left Shift</code> key into a <code>toggle</code> key for <code>raise</code> layer, using the <em>tap</em> versus <em>hold</em> functionality.</p>
-</section>
-<section id="home-row-modifiers" class="level3">
-<h3 class="anchored" data-anchor-id="home-row-modifiers">Home Row Modifiers</h3>
-<p>I have put the modifier keys on my Home Row with the following order: - Pinkie: <code>Shift</code> - Ring finger: <code>Ctrl</code> - Middle finger: <code>Alt</code> or sometimes called <code>Meta</code> - Index finger: <code>Super</code> aka <code>Windows key</code> aka <code>OS key</code></p>
-<p>Again, this is using the <em>tap</em> versus <em>hold</em> functionality. If I <em>tap</em> the key, then I am typing <code>asdf</code> and <code>jkl;</code> normally. However, if I <em>hold</em> the key, i.e., keep my finger pressed down on the key longer than 150 millisecond before releasing, then I activate the modifier key, and I could tap another key at the same time as one would normally use modifier keys. (for example, <code>Ctrl + T</code> to open a new tab in firefox browser).</p>
-</section>
-<section id="why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked." class="level3">
-<h3 class="anchored" data-anchor-id="why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked."><em>“Why would I ever want to do this to my keyboard?” you asked.</em></h3>
-<p>well, the philosophy is we could use the thumb more,</p>
-<p>use left thumb to hold the space key to toggle into <code>lower</code> layer,</p>
-<p>then the right hand could easily type</p>
-<pre><code>`!@#$%`
-    `12345`
-        `_-+[{`,</code></pre>
-<p>and upon releasing the space key, we automatically gets back to the <code>qwerty</code> layer.</p>
-<p>While use right thumb to hold the space key to toggle into <code>lower</code> layer,</p>
-<p>then the left hand could easily type</p>
-<pre><code>            `^&amp;*()`
-                `67890`
-                    `}],.=`,</code></pre>
-<p>and upon releasing the space key, we automatically gets back to the <code>qwerty</code> layer.</p>
-<p>Hence, holding the space bar using our thumbs acts like Shift, but with different layers and keys.</p>
+<section id="email-without-leaving-the-comfort-of-ones-terminal-using-mutt" class="level1">
+<h1>Email without leaving the comfort of one’s terminal using Mutt</h1>
+<p>A quick and easy guide to use <a href="http://www.mutt.org/">Mutt</a> as your email client. Long story short, if we just want to use mutt with, say, our personal gmail account, then we could just open up a browser, go to our google account, and create a thing called <code>app password</code>, then go to github and install <a href="https://github.com/LukeSmithxyz/mutt-wizard">mutt-wizard</a>, follow the instructions there, and it works pretty much out of the box. (Well, assuming one is familiar with the command line…) However, if you happen to have school/work gmail account that disables the <code>app password</code> feature, then you need to go thru some extra steps, and let me tell you how I went through these steps (tried and worked for me in April 2024).</p>
+<p>Essentially, one could follow the guidence outlined in this <a href="https://www.redhat.com/sysadmin/mutt-email-oauth2">article</a>, but the problem is that as in April 2024, the oauth2 access token will expire in one hour, and somehow the script <code>mutt_oauth2.py</code> does not get back a refresh token from the Google API, so if we stick with this script, after one hour, the access token expires, then we need to go thru the authentication process again, meaning: 1. copy paste a url from command line to a browser, 1. login to google account and authorize your own API to access your own account, 1. paste the response code back to the command line. Then you just gained yourself another hour of access.</p>
+<p>Thus, here comes the second solution, using <a href="https://github.com/google/gmail-oauth2-tools/blob/master/python/oauth2.py"><code>oauth2.py</code> from gmail-oauth2-tools</a>, and this time, it does return a refresh token, if you use the <em>first mode of operation</em> on the command line.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">oauth2</span> <span class="at">--user</span><span class="op">=</span>xxx@gmail.com <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--client_id</span><span class="op">=</span>1038<span class="pp">[</span><span class="ss">...</span><span class="pp">]</span>.apps.googleusercontent.com <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--client_secret</span><span class="op">=</span>VWF<span class="pp">[</span><span class="ss">...</span><span class="pp">]</span>OplZ <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--generate_oauth2_token</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>so after hit <code>Enter</code>, you would get back a url to paste into a browser, then hit <code>Enter</code> again, you would need to login and authorize the API to access your account, and after that, it will return a url, pasting that returned url back into the terminal completes the process.</p>
+<p>Now, in the terminal, standard input and standard output of getting access token and refresh token should look somewhat like this</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./oauth2.py <span class="at">--user</span><span class="op">=</span>your.gmail <span class="at">--client_id</span><span class="op">=</span>your.client.id <span class="at">--client_secret</span><span class="op">=</span>your.client.secret <span class="at">--generate_oauth2_token</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> authorize token, visit this url and follow the directions:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">https://accounts.google.com/long.foo.bar.url.string</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Enter</span> verification code: code.you.get.back</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Refresh</span> Token: your.refresh.token.is.here </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Access</span> Token: your.access.token.is.here </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Access</span> Token Expiration Seconds: 3599</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After you get that refresh token, you are basically done! What you need next is the following lines in your <code>~/.mutt/muttrc</code> config file (or whichever location you put your muttrc file)</p>
+<pre><code>set editor = "vim"
+set charset = "utf-8"
+set record = ''
+
+set imap_authenticators="oauthbearer:xoauth2"
+set imap_oauth_refresh_command="/you/path/to/oauth2.py --quiet \
+    --user=xxx@gmail.com \
+    --client_id=1038[...].apps.googleusercontent.com \
+    --client_secret=VWF[...]OplZ \
+    --refresh_token=1/Yzm6M[...]oyTum4YA"
+
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}</code></pre>
+<p>Then with some additional config that look more or less like the following, you will have a completely functional email client right in your terminal!</p>
+<pre><code>set from = "your@gmail.com"
+set realname = "your name"
+
+# Imap settings
+set imap_user = "your@gmail.com"
+# set imap_pass = "&lt;mutt-app-specific-password&gt;" # do not need this since we have oauth 2
+
+# Smtp settings
+set smtp_url = "smtps://your@smtp.gmail.com"
+# set smtp_pass = "&lt;mutt-app-specific-password&gt;" # do not need this
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"</code></pre>
+<p>Just remember to replace lines with <code>your</code> to your actual email address and so on.</p>
+<p>The next time you want to access email, just type <code>mutt</code> on the command line and hit <code>Enter</code>, and everything will work! (Hopefully!)</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
