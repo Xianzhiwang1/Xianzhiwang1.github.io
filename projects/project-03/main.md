@@ -1,4 +1,4 @@
-# My blog projects
+# Project-03 My blog projects
 I have been writing technical blog posts, feel free to check them out!
 
 Here's a link to my Blog for CSCI 0451 class taken during spring 2023: 

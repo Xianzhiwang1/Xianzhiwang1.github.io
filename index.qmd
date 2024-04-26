@@ -1,15 +1,11 @@
 ---
-title: "My-very-own-website"
+title: "my-portfolio-website"
 listing:
   contents: projects
 page-layout: full
 ---
 
 
-My name is Xianzhi, welcome to my webpage!
-
-
-
-
-
-
+My name is Xianzhi, welcome to my portfolio website!
+This is a place where I document my coding projects
+and some relevant (as well as random) tech stuff!

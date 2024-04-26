@@ -1,4 +1,4 @@
-# Email without leaving the comfort of one's terminal using Mutt
+# Project-02 Email without leaving the comfort of one's terminal using Mutt
 
 A quick and easy guide to use [Mutt](http://www.mutt.org/) as your email client. 
 Long story short, if we just want to use mutt with, say, our personal gmail account, 
