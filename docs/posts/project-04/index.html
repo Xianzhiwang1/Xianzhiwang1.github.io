@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project 04 | My Portfolio Site</title>
+	<link rel="canonical" href="https://xianzhiwang1.github.io/">
+	<link rel='alternate' type='application/rss+xml' title="My Portfolio Site RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="Project-04 neovim config
+I have been using neovim for a while now,
+and yes, the initial upfront time investment
+in learning vim is definitely worthwhile. I have
+kept my neovim config in
+this repository,
+and it is not very original, since it is basically
+put together from chunks and snippets of code here and there on the internet,
+and adding a little bit of tweak to suit some personal idiosyncrasies.
+Nevertheless, it has everything I need for now. I use
+parker.nvim to manage
+my plugins, but I might switch to lazy.nvim in the near future.
+While writing this post, I could hit Alt &#43; k to
+open markdownpreview in an existing browser session, which
+is equivalent to type the command :MarkdownPreview.
+And this is achieved by installing the following plugin via packer">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Project 04">Project 04</h1></header>
+<article>
+
+<h1 id="project-04-neovim-config">Project-04 neovim config</h1>
+<p>I have been using neovim for a while now,
+and yes, the initial upfront time investment
+in learning vim is definitely worthwhile. I have
+kept my neovim config in
+<a href="https://github.com/Xianzhiwang1/my-neovim-config-from-scratch">this repository</a>,
+and it is not very original, since it is basically
+put together from chunks and snippets of code here and there on the internet,
+and adding a little bit of tweak to suit some personal idiosyncrasies.
+Nevertheless, it has everything I need for now. I use
+<a href="https://github.com/wbthomason/packer.nvim">parker.nvim</a> to manage
+my plugins, but I might switch to <code>lazy.nvim</code> in the near future.
+While writing this post, I could hit <code>Alt + k</code> to
+open <code>markdownpreview</code> in an existing browser session, which
+is equivalent to type the command <code>:MarkdownPreview</code>.
+And this is achieved by installing the following plugin via <code>packer</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>-- install without yarn or npm
+</span></span><span style="display:flex;"><span>use<span style="color:#f92672">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;iamcco/markdown-preview.nvim&#34;</span>,
+</span></span><span style="display:flex;"><span>    run <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> vim.fn<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;mkdp#util#install&#34;</span><span style="color:#f92672">]()</span> end,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>use<span style="color:#f92672">({</span> <span style="color:#e6db74">&#34;iamcco/markdown-preview.nvim&#34;</span>, run <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cd app &amp;&amp; npm install&#34;</span>, setup <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> vim.g.mkdp_filetypes <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;markdown&#34;</span> <span style="color:#f92672">}</span> end, ft <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;markdown&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">})</span>
+</span></span></code></pre></div><p>And other plugins are installed similarly.
+There are full-blown IDEs right in your terminals
+like <a href="https://github.com/LunarVim/LunarVim">LunarVim</a>,
+but right now, I just want to focus on a few things.</p>
+<h3 id="nvim-and-latex">nvim and LaTex</h3>
+<p>I think the major benefit of writing mathematics
+using nvim locally versus
+using <a href="https://www.overleaf.com/">Overleaf</a>
+is you get to use snippets. And there is
+<a href="https://evesdropper.dev/files/luasnip/ultisnips-to-luasnip/">an excellent guide here</a>.
+Before I tell you how I use snippets in typesetting math,
+let us first figure out how to install Tex locally on your machine.
+For me, I am on a ubuntu machine right now, so I open a browser and
+go to <a href="https://www.tug.org/texlive/quickinstall.html">https://www.tug.org/texlive/quickinstall.html</a>
+and follow their <code>tl;dr</code> direction:</p>
+<ol>
+<li><code>cd</code> into a directory where you want to keep the binary files,</li>
+<li>download using this command <code>wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</code></li>
+<li>alternatively, using <code>curl</code> to download: <code>curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</code></li>
+<li>then simply enter the following command in the terminal and wait for the process to complete:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>zcat &lt; install-tl-unx.tar.gz | tar xf -
+</span></span><span style="display:flex;"><span>cd install-tl-*
+</span></span><span style="display:flex;"><span>sudo perl ./install-tl --no-interaction
+</span></span></code></pre></div><h4 id="one-common-error">one common error</h4>
+<p>One common error is one might not have <code>perl</code> or <code>curl</code> or (some other necessary packages)
+installed on one&rsquo;s linux machine, so we can check via the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>curl --version
+</span></span><span style="display:flex;"><span>perl --version
+</span></span></code></pre></div><p>and if you do not see the version number and some general info in the standard output,
+then you might not have it installed on your machine. To install, (take ubuntu for example)
+we can do the following;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade 
+</span></span></code></pre></div><p>this step is to update your system&rsquo;s package repository,
+so you could get the latest versions.
+Then we run the following;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo apt install perl
+</span></span><span style="display:flex;"><span>sudo apt install curl
+</span></span></code></pre></div><p>and after the installation finishes,
+we should be good to go.</p>
+<h4 id="another-common-error">another common error</h4>
+<p>Another common error is to forget to add <code>texlive</code> to your <code>PATH</code>.
+After installing Tex, usually in the terminal standard output,
+there&rsquo;s direction to add a string like the following to <code>PATH</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/usr/local/texlive/2023/bin/x86_64-linux
+</span></span></code></pre></div><p>I have the following lines in my <code>~/.bashrc</code> to achieve precisely this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># add to PATH texlive</span>
+</span></span><span style="display:flex;"><span>export  PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/texlive/2023/bin/x86_64-linux:</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>and if you have just added this line to your <code>.bashrc</code>,
+don&rsquo;t forget to <code>source</code> it for it to take effect in the existing
+terminal, otherwise, you need to open a new terminal for it to take effect.
+One quick way to check if it is already in your PATH:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>then you could just eyeball the output and see if the desired string
+is already there.</p>
+<h3 id="migrating-from-packer-to-lazynvim">Migrating from Packer to Lazy.nvim</h3>
+<p>Right now, I&rsquo;m in the process of migrating
+from Packer to Lazy, and the following
+<a href="https://lazy.folke.io/usage/migration">migration guide from Lazy documentation</a>
+is quite useful. I have modified <code>packer.lua</code> accordingly
+and renamed it <code>lazy.lua</code>, and it more or less worked for me,
+except I could not get the LaTex Snippets and <code>.tex</code> document
+syntax highlighting to work. I am still working on it, and
+hopefully I will find a solution!</p>
+
+
+<div id="nextprev">
+<a href="/posts/project-03/"><div id="prevart">Previous:<br>Project 03</div></a>
+<a href="/about/"><div id="nextart">Next:<br>About</div></a>
+</div>
+
+</article>
+</main>
+
+<footer>
+	<a href="https://xianzhiwang1.github.io/">https://xianzhiwang1.github.io/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>

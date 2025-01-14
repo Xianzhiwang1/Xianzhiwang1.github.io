@@ -1,0 +1,11 @@
+baseURL = 'https://xianzhiwang1.github.io/'
+languageCode = 'en-us'
+title = 'My Portfolio Site'
+
+theme = 'lugo'
+
+publishDir = "./docs/"
+
+
+
+

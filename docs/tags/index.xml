@@ -1,0 +1,312 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+	<title>My Portfolio Site</title>
+	<link>https://xianzhiwang1.github.io/tags/</link>
+	<description>Recent content in Tags on My Portfolio Site</description>
+	<generator>Hugo -- gohugo.io</generator>
+	<language>en-us</language>
+    
+        <atom:link href="https://xianzhiwang1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	
+	
+	<item>
+		<title>About</title>
+		<link>https://xianzhiwang1.github.io/about/</link>
+		<pubDate>Tue, 14 Jan 2025 12:56:23 -0600</pubDate>
+		
+		<guid>https://xianzhiwang1.github.io/about/</guid>
+		<description>&lt;p&gt;Hi! Welcome to my portfolio site!
+My name is Xianzhi, and I like mathematics and coding related stuff!
+This is a place where I document my coding projects
+and some relevant (as well as random) tech stuff!&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
+		<title>Project 04</title>
+		<link>https://xianzhiwang1.github.io/posts/project-04/</link>
+		<pubDate>Tue, 14 Jan 2025 12:54:45 -0600</pubDate>
+		
+		<guid>https://xianzhiwang1.github.io/posts/project-04/</guid>
+		<description>&lt;h1 id=&#34;project-04-neovim-config&#34;&gt;Project-04 neovim config&lt;/h1&gt;
+&lt;p&gt;I have been using neovim for a while now,
+and yes, the initial upfront time investment
+in learning vim is definitely worthwhile. I have
+kept my neovim config in
+&lt;a href=&#34;https://github.com/Xianzhiwang1/my-neovim-config-from-scratch&#34;&gt;this repository&lt;/a&gt;,
+and it is not very original, since it is basically
+put together from chunks and snippets of code here and there on the internet,
+and adding a little bit of tweak to suit some personal idiosyncrasies.
+Nevertheless, it has everything I need for now. I use
+&lt;a href=&#34;https://github.com/wbthomason/packer.nvim&#34;&gt;parker.nvim&lt;/a&gt; to manage
+my plugins, but I might switch to &lt;code&gt;lazy.nvim&lt;/code&gt; in the near future.
+While writing this post, I could hit &lt;code&gt;Alt + k&lt;/code&gt; to
+open &lt;code&gt;markdownpreview&lt;/code&gt; in an existing browser session, which
+is equivalent to type the command &lt;code&gt;:MarkdownPreview&lt;/code&gt;.
+And this is achieved by installing the following plugin via &lt;code&gt;packer&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-- install without yarn or npm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;use&lt;span style=&#34;color:#f92672&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;iamcco/markdown-preview.nvim&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    run &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; vim.fn&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mkdp#util#install&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]()&lt;/span&gt; end,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;use&lt;span style=&#34;color:#f92672&#34;&gt;({&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;iamcco/markdown-preview.nvim&amp;#34;&lt;/span&gt;, run &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cd app &amp;amp;&amp;amp; npm install&amp;#34;&lt;/span&gt;, setup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; vim.g.mkdp_filetypes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;markdown&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; end, ft &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;markdown&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And other plugins are installed similarly.
+There are full-blown IDEs right in your terminals
+like &lt;a href=&#34;https://github.com/LunarVim/LunarVim&#34;&gt;LunarVim&lt;/a&gt;,
+but right now, I just want to focus on a few things.&lt;/p&gt;
+&lt;h3 id=&#34;nvim-and-latex&#34;&gt;nvim and LaTex&lt;/h3&gt;
+&lt;p&gt;I think the major benefit of writing mathematics
+using nvim locally versus
+using &lt;a href=&#34;https://www.overleaf.com/&#34;&gt;Overleaf&lt;/a&gt;
+is you get to use snippets. And there is
+&lt;a href=&#34;https://evesdropper.dev/files/luasnip/ultisnips-to-luasnip/&#34;&gt;an excellent guide here&lt;/a&gt;.
+Before I tell you how I use snippets in typesetting math,
+let us first figure out how to install Tex locally on your machine.
+For me, I am on a ubuntu machine right now, so I open a browser and
+go to &lt;a href=&#34;https://www.tug.org/texlive/quickinstall.html&#34;&gt;https://www.tug.org/texlive/quickinstall.html&lt;/a&gt;
+and follow their &lt;code&gt;tl;dr&lt;/code&gt; direction:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;cd&lt;/code&gt; into a directory where you want to keep the binary files,&lt;/li&gt;
+&lt;li&gt;download using this command &lt;code&gt;wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;alternatively, using &lt;code&gt;curl&lt;/code&gt; to download: &lt;code&gt;curl -L -o install-tl-unx.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;then simply enter the following command in the terminal and wait for the process to complete:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zcat &amp;lt; install-tl-unx.tar.gz | tar xf -
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd install-tl-*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo perl ./install-tl --no-interaction
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;one-common-error&#34;&gt;one common error&lt;/h4&gt;
+&lt;p&gt;One common error is one might not have &lt;code&gt;perl&lt;/code&gt; or &lt;code&gt;curl&lt;/code&gt; or (some other necessary packages)
+installed on one&amp;rsquo;s linux machine, so we can check via the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;perl --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and if you do not see the version number and some general info in the standard output,
+then you might not have it installed on your machine. To install, (take ubuntu for example)
+we can do the following;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;this step is to update your system&amp;rsquo;s package repository,
+so you could get the latest versions.
+Then we run the following;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install perl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install curl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and after the installation finishes,
+we should be good to go.&lt;/p&gt;
+&lt;h4 id=&#34;another-common-error&#34;&gt;another common error&lt;/h4&gt;
+&lt;p&gt;Another common error is to forget to add &lt;code&gt;texlive&lt;/code&gt; to your &lt;code&gt;PATH&lt;/code&gt;.
+After installing Tex, usually in the terminal standard output,
+there&amp;rsquo;s direction to add a string like the following to &lt;code&gt;PATH&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/texlive/2023/bin/x86_64-linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I have the following lines in my &lt;code&gt;~/.bashrc&lt;/code&gt; to achieve precisely this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# add to PATH texlive&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export  PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/texlive/2023/bin/x86_64-linux:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and if you have just added this line to your &lt;code&gt;.bashrc&lt;/code&gt;,
+don&amp;rsquo;t forget to &lt;code&gt;source&lt;/code&gt; it for it to take effect in the existing
+terminal, otherwise, you need to open a new terminal for it to take effect.
+One quick way to check if it is already in your PATH:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;then you could just eyeball the output and see if the desired string
+is already there.&lt;/p&gt;
+&lt;h3 id=&#34;migrating-from-packer-to-lazynvim&#34;&gt;Migrating from Packer to Lazy.nvim&lt;/h3&gt;
+&lt;p&gt;Right now, I&amp;rsquo;m in the process of migrating
+from Packer to Lazy, and the following
+&lt;a href=&#34;https://lazy.folke.io/usage/migration&#34;&gt;migration guide from Lazy documentation&lt;/a&gt;
+is quite useful. I have modified &lt;code&gt;packer.lua&lt;/code&gt; accordingly
+and renamed it &lt;code&gt;lazy.lua&lt;/code&gt;, and it more or less worked for me,
+except I could not get the LaTex Snippets and &lt;code&gt;.tex&lt;/code&gt; document
+syntax highlighting to work. I am still working on it, and
+hopefully I will find a solution!&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
+		<title>Project 03</title>
+		<link>https://xianzhiwang1.github.io/posts/project-03/</link>
+		<pubDate>Tue, 14 Jan 2025 12:53:51 -0600</pubDate>
+		
+		<guid>https://xianzhiwang1.github.io/posts/project-03/</guid>
+		<description>&lt;h1 id=&#34;project-03-my-blog-projects&#34;&gt;Project-03 My blog projects&lt;/h1&gt;
+&lt;p&gt;I have been writing technical blog posts, feel free to check them out!&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a link to my Blog for CSCI 0451 class taken during spring 2023:
+&lt;a href=&#34;https://xianzhiwang1.github.io/CS0451-page-site&#34;&gt;My_Flabbergasted_CSCI_0451_Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a link to my other blog, which contains some miscellaneous items:
+&lt;a href=&#34;https://xianzhiwang1.github.io/My-Very-Own-Blog&#34;&gt;A Blog I started that I called My Very Own&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I made those blog sites when I was a undergrad, and
+I used quarto for those blog projects,
+as well as my portfolio website itself.
+It used to be organized as such:&lt;/p&gt;
+&lt;h3 id=&#34;about-this-site&#34;&gt;About this site&lt;/h3&gt;
+&lt;p&gt;I have made this website using &lt;a href=&#34;https://quarto.org/docs/get-started/&#34;&gt;quarto&lt;/a&gt;,
+so basically, I write everything in markdown in a &lt;code&gt;main.md&lt;/code&gt; file in the &lt;code&gt;projects&lt;/code&gt;
+directory, and after I am finished, I run a terminal command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;quarto render
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;while in the directory of this quarto project. The files that I edit
+to make this website basically have the following directory structure:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── index.qmd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── projects
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── project-01
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── main.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── project-02
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── main.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── project-03
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── main.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── project-04
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│       └── main.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── _quarto.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and after hitting that magic &lt;code&gt;quarto render&lt;/code&gt;, it automatically
+generates a &lt;code&gt;docs&lt;/code&gt; directory that has a lot more stuff in it,
+and the directory structure looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── docs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── about.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── listings.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── projects
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── project-01
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── main.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── project-02
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── main.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── project-03
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │       └── main.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── search.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── site_libs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── bootstrap-dark.min.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── bootstrap-icons.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── bootstrap-icons.woff
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── bootstrap.min.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── bootstrap.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── clipboard
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── clipboard.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── quarto-html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── anchor.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── popper.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── quarto.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── quarto-syntax-highlighting.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── quarto-syntax-highlighting-dark.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── tippy.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── tippy.umd.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── quarto-listing
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── list.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── quarto-listing.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── quarto-nav
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   ├── headroom.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── quarto-nav.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── quarto-search
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │       ├── autocomplete.umd.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │       ├── fuse.min.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │       └── quarto-search.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── styles.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── favicon.ico
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and that&amp;rsquo;s where the magic happens.
+Then all I need to do is check that
+&lt;em&gt;deploy from &lt;code&gt;docs&lt;/code&gt;&lt;/em&gt; box on github,
+so the github pages will know to get
+everything it needs for the website
+from the &lt;code&gt;docs&lt;/code&gt; folder.&lt;/p&gt;
+&lt;h3 id=&#34;transition-to-hugo&#34;&gt;Transition to HUGO&lt;/h3&gt;
+&lt;p&gt;as of Jan 2025, I&amp;rsquo;m learning
+how to use HUGO to generate my web page.
+The idea is the same: I write posts in markdown,
+and let HUGO to do the heavy lifting to create
+the actual website. For me, it&amp;rsquo;s a work in progress,
+I always try to learn something new.&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
+		<title>Project 01</title>
+		<link>https://xianzhiwang1.github.io/posts/project-01/</link>
+		<pubDate>Tue, 14 Jan 2025 12:48:18 -0600</pubDate>
+		
+		<guid>https://xianzhiwang1.github.io/posts/project-01/</guid>
+		<description>&lt;h1 id=&#34;project-01-my-custom-keymap-using-kmonad&#34;&gt;Project-01 My Custom Keymap using Kmonad&lt;/h1&gt;
+&lt;p&gt;Let me tell you about this wonderful keyboard management tool called
+&lt;a href=&#34;https://github.com/kmonad/kmonad&#34;&gt;Kmonad&lt;/a&gt;
+and how I use it &lt;a href=&#34;https://github.com/Xianzhiwang1/i3-config/&#34;&gt;(link)&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;my-kmonad-config&#34;&gt;My kmonad config&lt;/h3&gt;
+&lt;p&gt;In my own words, kmonad is a software level (contrast to firmware level)
+tool that let you to remap your keys however you want. In perticular,
+it allows you to define different &lt;strong&gt;layers&lt;/strong&gt;, thus allowing the same key
+to produce different symbols when typed in different layers.&lt;/p&gt;
+&lt;p&gt;I have three layers (inspired by the &lt;code&gt;lily58&lt;/code&gt; split keyboard layout,
+and the &lt;code&gt;Corne&lt;/code&gt; keyboard layout found at this &lt;a href=&#34;https://mark.stosberg.com/markstos-corne-3x5-1-keyboard-layout/&#34;&gt;website&lt;/a&gt;),
+and they are as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;the default: &lt;code&gt;qwerty&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;numbers on the home row: &lt;code&gt;lower&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;left down up right at hjkl: &lt;code&gt;raise&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;space-key-has-dual-functionality-with-tap-versus-hold&#34;&gt;space key has dual functionality with &lt;em&gt;tap&lt;/em&gt; versus &lt;em&gt;hold&lt;/em&gt;:&lt;/h3&gt;
+&lt;p&gt;in the &lt;code&gt;qwerty&lt;/code&gt; layer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tap: acts as ordinary space key&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hold: (more than 150 millisecond) toggles into the &lt;code&gt;lower&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If we are already in &lt;code&gt;raise&lt;/code&gt; layer or &lt;code&gt;lower&lt;/code&gt; layer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tap the space key: acts as ordinary space key&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hold the space key: (more than 150 millisecond) toggles back to the &lt;code&gt;qwerty&lt;/code&gt; layer (not sure if this is useful)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition to the &lt;strong&gt;toggle&lt;/strong&gt; functionality, which means one must hold down the toggle key for the layer to remain activated,
+there is the &lt;strong&gt;switch&lt;/strong&gt; functionality, which means we just need to tap the switch key once, and we are in the desired layer,
+without needing to hold it down the entire time. Then we can tap a another switch key (usually the same key) to swich back to
+the layer we started with. In my config, we have the following swich keys:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;F1&lt;/code&gt; key switches between &lt;code&gt;qwerty&lt;/code&gt; layer and &lt;code&gt;lower&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;F2&lt;/code&gt; key switches between &lt;code&gt;qwerty&lt;/code&gt; layer and &lt;code&gt;raise&lt;/code&gt; layer&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Note that we don&amp;rsquo;t usually &lt;strong&gt;switch&lt;/strong&gt; to the &lt;code&gt;lower&lt;/code&gt; layer, we would
+rather just use our thumb to &lt;strong&gt;toggle&lt;/strong&gt;, so upon release the space key,
+we automatically go back to the &lt;code&gt;qwerty&lt;/code&gt; layer.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I also put the modifier keys on the Home Row. Thus, I might make the
+&lt;code&gt;left Shift&lt;/code&gt; key into a &lt;code&gt;toggle&lt;/code&gt; key for &lt;code&gt;raise&lt;/code&gt; layer, using the &lt;em&gt;tap&lt;/em&gt; versus &lt;em&gt;hold&lt;/em&gt; functionality.&lt;/p&gt;
+&lt;h3 id=&#34;home-row-modifiers&#34;&gt;Home Row Modifiers&lt;/h3&gt;
+&lt;p&gt;I have put the modifier keys on my Home Row with the following order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pinkie: &lt;code&gt;Shift&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ring finger: &lt;code&gt;Ctrl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Middle finger: &lt;code&gt;Alt&lt;/code&gt; or sometimes called &lt;code&gt;Meta&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Index finger: &lt;code&gt;Super&lt;/code&gt; aka &lt;code&gt;Windows key&lt;/code&gt; aka &lt;code&gt;OS key&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Again, this is using the &lt;em&gt;tap&lt;/em&gt; versus &lt;em&gt;hold&lt;/em&gt; functionality. If I &lt;em&gt;tap&lt;/em&gt; the key,
+then I am typing &lt;code&gt;asdf&lt;/code&gt; and &lt;code&gt;jkl;&lt;/code&gt; normally. However, if I &lt;em&gt;hold&lt;/em&gt; the key, i.e., keep my
+finger pressed down on the key longer than 150 millisecond before releasing, then I activate
+the modifier key, and I could tap another key at the same time as one would normally use modifier keys.
+(for example, &lt;code&gt;Ctrl + T&lt;/code&gt; to open a new tab in firefox browser).&lt;/p&gt;
+&lt;h3 id=&#34;why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked&#34;&gt;&lt;em&gt;&amp;ldquo;Why would I ever want to do this to my keyboard?&amp;rdquo; you asked.&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;well, the philosophy is we could use the thumb more,&lt;/p&gt;
+&lt;p&gt;use left thumb to hold the space key to toggle into &lt;code&gt;lower&lt;/code&gt; layer,&lt;/p&gt;
+&lt;p&gt;then the right hand could easily type&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;`!@#$%`
+    `12345`
+        `_-+[{`,
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and upon releasing the space key, we automatically gets back to the &lt;code&gt;qwerty&lt;/code&gt; layer.&lt;/p&gt;
+&lt;p&gt;While use right thumb to hold the space key to toggle into &lt;code&gt;lower&lt;/code&gt; layer,&lt;/p&gt;
+&lt;p&gt;then the left hand could easily type&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;            `^&amp;amp;*()`
+                `67890`
+                    `}],.=`,
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and upon releasing the space key, we automatically gets back to the &lt;code&gt;qwerty&lt;/code&gt; layer.&lt;/p&gt;
+&lt;p&gt;Hence, holding the space bar using our thumbs acts like Shift, but with different layers and keys.&lt;/p&gt;
+</description>
+	</item>
+	
+	</channel>
+</rss>

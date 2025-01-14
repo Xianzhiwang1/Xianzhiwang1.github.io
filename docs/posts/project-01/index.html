@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project 01 | My Portfolio Site</title>
+	<link rel="canonical" href="https://xianzhiwang1.github.io/">
+	<link rel='alternate' type='application/rss+xml' title="My Portfolio Site RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="Project-01 My Custom Keymap using Kmonad
+Let me tell you about this wonderful keyboard management tool called
+Kmonad
+and how I use it (link).
+My kmonad config
+In my own words, kmonad is a software level (contrast to firmware level)
+tool that let you to remap your keys however you want. In perticular,
+it allows you to define different layers, thus allowing the same key
+to produce different symbols when typed in different layers.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Project 01">Project 01</h1></header>
+<article>
+
+<h1 id="project-01-my-custom-keymap-using-kmonad">Project-01 My Custom Keymap using Kmonad</h1>
+<p>Let me tell you about this wonderful keyboard management tool called
+<a href="https://github.com/kmonad/kmonad">Kmonad</a>
+and how I use it <a href="https://github.com/Xianzhiwang1/i3-config/">(link)</a>.</p>
+<h3 id="my-kmonad-config">My kmonad config</h3>
+<p>In my own words, kmonad is a software level (contrast to firmware level)
+tool that let you to remap your keys however you want. In perticular,
+it allows you to define different <strong>layers</strong>, thus allowing the same key
+to produce different symbols when typed in different layers.</p>
+<p>I have three layers (inspired by the <code>lily58</code> split keyboard layout,
+and the <code>Corne</code> keyboard layout found at this <a href="https://mark.stosberg.com/markstos-corne-3x5-1-keyboard-layout/">website</a>),
+and they are as follows:</p>
+<ol>
+<li>
+<p>the default: <code>qwerty</code> layer</p>
+</li>
+<li>
+<p>numbers on the home row: <code>lower</code> layer</p>
+</li>
+<li>
+<p>left down up right at hjkl: <code>raise</code> layer</p>
+</li>
+</ol>
+<h3 id="space-key-has-dual-functionality-with-tap-versus-hold">space key has dual functionality with <em>tap</em> versus <em>hold</em>:</h3>
+<p>in the <code>qwerty</code> layer:</p>
+<ul>
+<li>
+<p>tap: acts as ordinary space key</p>
+</li>
+<li>
+<p>hold: (more than 150 millisecond) toggles into the <code>lower</code> layer</p>
+</li>
+</ul>
+<p>If we are already in <code>raise</code> layer or <code>lower</code> layer:</p>
+<ul>
+<li>
+<p>tap the space key: acts as ordinary space key</p>
+</li>
+<li>
+<p>hold the space key: (more than 150 millisecond) toggles back to the <code>qwerty</code> layer (not sure if this is useful)</p>
+</li>
+</ul>
+<p>In addition to the <strong>toggle</strong> functionality, which means one must hold down the toggle key for the layer to remain activated,
+there is the <strong>switch</strong> functionality, which means we just need to tap the switch key once, and we are in the desired layer,
+without needing to hold it down the entire time. Then we can tap a another switch key (usually the same key) to swich back to
+the layer we started with. In my config, we have the following swich keys:</p>
+<ol>
+<li>
+<p><code>F1</code> key switches between <code>qwerty</code> layer and <code>lower</code> layer</p>
+</li>
+<li>
+<p><code>F2</code> key switches between <code>qwerty</code> layer and <code>raise</code> layer</p>
+</li>
+</ol>
+<p><em>Note that we don&rsquo;t usually <strong>switch</strong> to the <code>lower</code> layer, we would
+rather just use our thumb to <strong>toggle</strong>, so upon release the space key,
+we automatically go back to the <code>qwerty</code> layer.</em></p>
+<p>I also put the modifier keys on the Home Row. Thus, I might make the
+<code>left Shift</code> key into a <code>toggle</code> key for <code>raise</code> layer, using the <em>tap</em> versus <em>hold</em> functionality.</p>
+<h3 id="home-row-modifiers">Home Row Modifiers</h3>
+<p>I have put the modifier keys on my Home Row with the following order:</p>
+<ul>
+<li>Pinkie: <code>Shift</code></li>
+<li>Ring finger: <code>Ctrl</code></li>
+<li>Middle finger: <code>Alt</code> or sometimes called <code>Meta</code></li>
+<li>Index finger: <code>Super</code> aka <code>Windows key</code> aka <code>OS key</code></li>
+</ul>
+<p>Again, this is using the <em>tap</em> versus <em>hold</em> functionality. If I <em>tap</em> the key,
+then I am typing <code>asdf</code> and <code>jkl;</code> normally. However, if I <em>hold</em> the key, i.e., keep my
+finger pressed down on the key longer than 150 millisecond before releasing, then I activate
+the modifier key, and I could tap another key at the same time as one would normally use modifier keys.
+(for example, <code>Ctrl + T</code> to open a new tab in firefox browser).</p>
+<h3 id="why-would-i-ever-want-to-do-this-to-my-keyboard-you-asked"><em>&ldquo;Why would I ever want to do this to my keyboard?&rdquo; you asked.</em></h3>
+<p>well, the philosophy is we could use the thumb more,</p>
+<p>use left thumb to hold the space key to toggle into <code>lower</code> layer,</p>
+<p>then the right hand could easily type</p>
+<pre tabindex="0"><code>`!@#$%`
+    `12345`
+        `_-+[{`,
+</code></pre><p>and upon releasing the space key, we automatically gets back to the <code>qwerty</code> layer.</p>
+<p>While use right thumb to hold the space key to toggle into <code>lower</code> layer,</p>
+<p>then the left hand could easily type</p>
+<pre tabindex="0"><code>            `^&amp;*()`
+                `67890`
+                    `}],.=`,
+</code></pre><p>and upon releasing the space key, we automatically gets back to the <code>qwerty</code> layer.</p>
+<p>Hence, holding the space bar using our thumbs acts like Shift, but with different layers and keys.</p>
+
+
+<div id="nextprev"><a href="/posts/project-03/"><div id="nextart">Next:<br>Project 03</div></a>
+</div>
+
+</article>
+</main>
+
+<footer>
+	<a href="https://xianzhiwang1.github.io/">https://xianzhiwang1.github.io/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>

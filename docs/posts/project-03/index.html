@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project 03 | My Portfolio Site</title>
+	<link rel="canonical" href="https://xianzhiwang1.github.io/">
+	<link rel='alternate' type='application/rss+xml' title="My Portfolio Site RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="Project-03 My blog projects
+I have been writing technical blog posts, feel free to check them out!
+Here&rsquo;s a link to my Blog for CSCI 0451 class taken during spring 2023:
+My_Flabbergasted_CSCI_0451_Blog
+Here&rsquo;s a link to my other blog, which contains some miscellaneous items:
+A Blog I started that I called My Very Own
+I made those blog sites when I was a undergrad, and
+I used quarto for those blog projects,
+as well as my portfolio website itself.
+It used to be organized as such:">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Project 03">Project 03</h1></header>
+<article>
+
+<h1 id="project-03-my-blog-projects">Project-03 My blog projects</h1>
+<p>I have been writing technical blog posts, feel free to check them out!</p>
+<p>Here&rsquo;s a link to my Blog for CSCI 0451 class taken during spring 2023:
+<a href="https://xianzhiwang1.github.io/CS0451-page-site">My_Flabbergasted_CSCI_0451_Blog</a></p>
+<p>Here&rsquo;s a link to my other blog, which contains some miscellaneous items:
+<a href="https://xianzhiwang1.github.io/My-Very-Own-Blog">A Blog I started that I called My Very Own</a></p>
+<p>I made those blog sites when I was a undergrad, and
+I used quarto for those blog projects,
+as well as my portfolio website itself.
+It used to be organized as such:</p>
+<h3 id="about-this-site">About this site</h3>
+<p>I have made this website using <a href="https://quarto.org/docs/get-started/">quarto</a>,
+so basically, I write everything in markdown in a <code>main.md</code> file in the <code>projects</code>
+directory, and after I am finished, I run a terminal command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>quarto render
+</span></span></code></pre></div><p>while in the directory of this quarto project. The files that I edit
+to make this website basically have the following directory structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>├── index.qmd
+</span></span><span style="display:flex;"><span>├── projects
+</span></span><span style="display:flex;"><span>│   ├── project-01
+</span></span><span style="display:flex;"><span>│   │   └── main.md
+</span></span><span style="display:flex;"><span>│   ├── project-02
+</span></span><span style="display:flex;"><span>│   │   └── main.md
+</span></span><span style="display:flex;"><span>│   ├── project-03
+</span></span><span style="display:flex;"><span>│   │   └── main.md
+</span></span><span style="display:flex;"><span>│   └── project-04
+</span></span><span style="display:flex;"><span>│       └── main.md
+</span></span><span style="display:flex;"><span>├── _quarto.yml
+</span></span></code></pre></div><p>and after hitting that magic <code>quarto render</code>, it automatically
+generates a <code>docs</code> directory that has a lot more stuff in it,
+and the directory structure looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>├── docs
+</span></span><span style="display:flex;"><span>│   ├── about.html
+</span></span><span style="display:flex;"><span>│   ├── index.html
+</span></span><span style="display:flex;"><span>│   ├── listings.json
+</span></span><span style="display:flex;"><span>│   ├── projects
+</span></span><span style="display:flex;"><span>│   │   ├── project-01
+</span></span><span style="display:flex;"><span>│   │   │   └── main.html
+</span></span><span style="display:flex;"><span>│   │   ├── project-02
+</span></span><span style="display:flex;"><span>│   │   │   └── main.html
+</span></span><span style="display:flex;"><span>│   │   └── project-03
+</span></span><span style="display:flex;"><span>│   │       └── main.html
+</span></span><span style="display:flex;"><span>│   ├── search.json
+</span></span><span style="display:flex;"><span>│   ├── site_libs
+</span></span><span style="display:flex;"><span>│   │   ├── bootstrap
+</span></span><span style="display:flex;"><span>│   │   │   ├── bootstrap-dark.min.css
+</span></span><span style="display:flex;"><span>│   │   │   ├── bootstrap-icons.css
+</span></span><span style="display:flex;"><span>│   │   │   ├── bootstrap-icons.woff
+</span></span><span style="display:flex;"><span>│   │   │   ├── bootstrap.min.css
+</span></span><span style="display:flex;"><span>│   │   │   └── bootstrap.min.js
+</span></span><span style="display:flex;"><span>│   │   ├── clipboard
+</span></span><span style="display:flex;"><span>│   │   │   └── clipboard.min.js
+</span></span><span style="display:flex;"><span>│   │   ├── quarto-html
+</span></span><span style="display:flex;"><span>│   │   │   ├── anchor.min.js
+</span></span><span style="display:flex;"><span>│   │   │   ├── popper.min.js
+</span></span><span style="display:flex;"><span>│   │   │   ├── quarto.js
+</span></span><span style="display:flex;"><span>│   │   │   ├── quarto-syntax-highlighting.css
+</span></span><span style="display:flex;"><span>│   │   │   ├── quarto-syntax-highlighting-dark.css
+</span></span><span style="display:flex;"><span>│   │   │   ├── tippy.css
+</span></span><span style="display:flex;"><span>│   │   │   └── tippy.umd.min.js
+</span></span><span style="display:flex;"><span>│   │   ├── quarto-listing
+</span></span><span style="display:flex;"><span>│   │   │   ├── list.min.js
+</span></span><span style="display:flex;"><span>│   │   │   └── quarto-listing.js
+</span></span><span style="display:flex;"><span>│   │   ├── quarto-nav
+</span></span><span style="display:flex;"><span>│   │   │   ├── headroom.min.js
+</span></span><span style="display:flex;"><span>│   │   │   └── quarto-nav.js
+</span></span><span style="display:flex;"><span>│   │   └── quarto-search
+</span></span><span style="display:flex;"><span>│   │       ├── autocomplete.umd.js
+</span></span><span style="display:flex;"><span>│   │       ├── fuse.min.js
+</span></span><span style="display:flex;"><span>│   │       └── quarto-search.js
+</span></span><span style="display:flex;"><span>│   └── styles.css
+</span></span><span style="display:flex;"><span>├── favicon.ico
+</span></span></code></pre></div><p>and that&rsquo;s where the magic happens.
+Then all I need to do is check that
+<em>deploy from <code>docs</code></em> box on github,
+so the github pages will know to get
+everything it needs for the website
+from the <code>docs</code> folder.</p>
+<h3 id="transition-to-hugo">Transition to HUGO</h3>
+<p>as of Jan 2025, I&rsquo;m learning
+how to use HUGO to generate my web page.
+The idea is the same: I write posts in markdown,
+and let HUGO to do the heavy lifting to create
+the actual website. For me, it&rsquo;s a work in progress,
+I always try to learn something new.</p>
+
+
+<div id="nextprev">
+<a href="/posts/project-01/"><div id="prevart">Previous:<br>Project 01</div></a>
+<a href="/posts/project-04/"><div id="nextart">Next:<br>Project 04</div></a>
+</div>
+
+</article>
+</main>
+
+<footer>
+	<a href="https://xianzhiwang1.github.io/">https://xianzhiwang1.github.io/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>
