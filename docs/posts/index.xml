@@ -214,6 +214,96 @@ I always try to learn something new.&lt;/p&gt;
 	</item>
 	
 	<item>
+		<title>Project 02</title>
+		<link>https://xianzhiwang1.github.io/posts/project-02/</link>
+		<pubDate>Tue, 14 Jan 2025 12:51:24 -0600</pubDate>
+		
+		<guid>https://xianzhiwang1.github.io/posts/project-02/</guid>
+		<description>&lt;h1 id=&#34;project-02-email-without-leaving-the-comfort-of-ones-terminal-using-mutt&#34;&gt;Project-02 Email without leaving the comfort of one&amp;rsquo;s terminal using Mutt&lt;/h1&gt;
+&lt;p&gt;A quick and easy guide to use &lt;a href=&#34;http://www.mutt.org/&#34;&gt;Mutt&lt;/a&gt; as your email client.
+Long story short, if we just want to use mutt with, say, our personal gmail account,
+then we could just open up a browser, go to our google account, and create a thing called &lt;code&gt;app password&lt;/code&gt;,
+then go to github and install &lt;a href=&#34;https://github.com/LukeSmithxyz/mutt-wizard&#34;&gt;mutt-wizard&lt;/a&gt;,
+follow the instructions there, and it works pretty much out of the box.
+(Well, assuming one is familiar with the command line&amp;hellip;) However, if you happen to have school/work
+gmail account that disables the &lt;code&gt;app password&lt;/code&gt; feature, then you need to go thru some extra steps,
+and let me tell you how I went through these steps (tried and worked for me in April 2024).&lt;/p&gt;
+&lt;p&gt;Essentially, one could follow the guidence outlined in this
+&lt;a href=&#34;https://www.redhat.com/sysadmin/mutt-email-oauth2&#34;&gt;article&lt;/a&gt;,
+but the problem is that as in April 2024,
+the oauth2 access token will expire in one hour, and somehow the script
+&lt;code&gt;mutt_oauth2.py&lt;/code&gt; does not get back a refresh token from the Google API,
+so if we stick with this script, after one hour, the access token expires,
+then we need to go thru the authentication process again, meaning:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;copy paste a url from command line to a browser,&lt;/li&gt;
+&lt;li&gt;login to google account and authorize your own API to access your own account,&lt;/li&gt;
+&lt;li&gt;paste the response code back to the command line.
+Then you just gained yourself another hour of access.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Thus, here comes the second solution, using
+&lt;a href=&#34;https://github.com/google/gmail-oauth2-tools/blob/master/python/oauth2.py&#34;&gt;&lt;code&gt;oauth2.py&lt;/code&gt; from gmail-oauth2-tools&lt;/a&gt;,
+and this time, it does return a refresh token, if you use the &lt;em&gt;first mode of operation&lt;/em&gt; on the command line.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; oauth2 --user&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;xxx@gmail.com &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --client_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1038&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;.apps.googleusercontent.com &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --client_secret&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;VWF&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;OplZ &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --generate_oauth2_token
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;so after hit &lt;code&gt;Enter&lt;/code&gt;, you would get back a url to paste into a browser,
+then hit &lt;code&gt;Enter&lt;/code&gt; again, you would need to login and authorize
+the API to access your account, and after that, it will return a url, pasting
+that returned url back into the terminal completes the process.&lt;/p&gt;
+&lt;p&gt;Now, in the terminal, standard input and standard output of getting
+access token and refresh token should look somewhat like this&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./oauth2.py --user&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your.gmail --client_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your.client.id --client_secret&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;your.client.secret --generate_oauth2_token
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To authorize token, visit this url and follow the directions:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  https://accounts.google.com/long.foo.bar.url.string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Enter verification code: code.you.get.back
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Refresh Token: your.refresh.token.is.here 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Access Token: your.access.token.is.here 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Access Token Expiration Seconds: &lt;span style=&#34;color:#ae81ff&#34;&gt;3599&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After you get that refresh token, you are basically done!
+What you need next is the following lines in your &lt;code&gt;~/.mutt/muttrc&lt;/code&gt; config file
+(or whichever location you put your muttrc file)&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;set editor = &amp;#34;vim&amp;#34;
+set charset = &amp;#34;utf-8&amp;#34;
+set record = &amp;#39;&amp;#39;
+
+set imap_authenticators=&amp;#34;oauthbearer:xoauth2&amp;#34;
+set imap_oauth_refresh_command=&amp;#34;/you/path/to/oauth2.py --quiet \
+    --user=xxx@gmail.com \
+    --client_id=1038[...].apps.googleusercontent.com \
+    --client_secret=VWF[...]OplZ \
+    --refresh_token=1/Yzm6M[...]oyTum4YA&amp;#34;
+
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then with some additional config that look more or less like the following,
+you will have a completely functional email client right in your terminal!&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;set from = &amp;#34;your@gmail.com&amp;#34;
+set realname = &amp;#34;your name&amp;#34;
+
+# Imap settings
+set imap_user = &amp;#34;your@gmail.com&amp;#34;
+# set imap_pass = &amp;#34;&amp;lt;mutt-app-specific-password&amp;gt;&amp;#34; # do not need this since we have oauth 2
+
+# Smtp settings
+set smtp_url = &amp;#34;smtps://your@smtp.gmail.com&amp;#34;
+# set smtp_pass = &amp;#34;&amp;lt;mutt-app-specific-password&amp;gt;&amp;#34; # do not need this
+
+# Remote gmail folders
+set folder = &amp;#34;imaps://imap.gmail.com/&amp;#34;
+set spoolfile = &amp;#34;+INBOX&amp;#34;
+set postponed = &amp;#34;+[Gmail]/Drafts&amp;#34;
+set record = &amp;#34;+[Gmail]/Sent Mail&amp;#34;
+set trash = &amp;#34;+[Gmail]/Trash&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Just remember to replace lines with &lt;code&gt;your&lt;/code&gt;
+to your actual email address and so on.&lt;/p&gt;
+&lt;p&gt;The next time you want to access email, just type &lt;code&gt;mutt&lt;/code&gt; on the
+command line and hit &lt;code&gt;Enter&lt;/code&gt;, and everything will work! (Hopefully!)&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
 		<title>Project 01</title>
 		<link>https://xianzhiwang1.github.io/posts/project-01/</link>
 		<pubDate>Tue, 14 Jan 2025 12:48:18 -0600</pubDate>

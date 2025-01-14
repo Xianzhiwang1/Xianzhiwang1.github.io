@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Project 02 | My Portfolio Site</title>
+	<link rel="canonical" href="https://xianzhiwang1.github.io/">
+	<link rel='alternate' type='application/rss+xml' title="My Portfolio Site RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/favicon.ico">
+	<meta name="description" content="Project-02 Email without leaving the comfort of one&rsquo;s terminal using Mutt
+A quick and easy guide to use Mutt as your email client.
+Long story short, if we just want to use mutt with, say, our personal gmail account,
+then we could just open up a browser, go to our google account, and create a thing called app password,
+then go to github and install mutt-wizard,
+follow the instructions there, and it works pretty much out of the box.
+(Well, assuming one is familiar with the command line&hellip;) However, if you happen to have school/work
+gmail account that disables the app password feature, then you need to go thru some extra steps,
+and let me tell you how I went through these steps (tried and worked for me in April 2024).">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Project 02">Project 02</h1></header>
+<article>
+
+<h1 id="project-02-email-without-leaving-the-comfort-of-ones-terminal-using-mutt">Project-02 Email without leaving the comfort of one&rsquo;s terminal using Mutt</h1>
+<p>A quick and easy guide to use <a href="http://www.mutt.org/">Mutt</a> as your email client.
+Long story short, if we just want to use mutt with, say, our personal gmail account,
+then we could just open up a browser, go to our google account, and create a thing called <code>app password</code>,
+then go to github and install <a href="https://github.com/LukeSmithxyz/mutt-wizard">mutt-wizard</a>,
+follow the instructions there, and it works pretty much out of the box.
+(Well, assuming one is familiar with the command line&hellip;) However, if you happen to have school/work
+gmail account that disables the <code>app password</code> feature, then you need to go thru some extra steps,
+and let me tell you how I went through these steps (tried and worked for me in April 2024).</p>
+<p>Essentially, one could follow the guidence outlined in this
+<a href="https://www.redhat.com/sysadmin/mutt-email-oauth2">article</a>,
+but the problem is that as in April 2024,
+the oauth2 access token will expire in one hour, and somehow the script
+<code>mutt_oauth2.py</code> does not get back a refresh token from the Google API,
+so if we stick with this script, after one hour, the access token expires,
+then we need to go thru the authentication process again, meaning:</p>
+<ol>
+<li>copy paste a url from command line to a browser,</li>
+<li>login to google account and authorize your own API to access your own account,</li>
+<li>paste the response code back to the command line.
+Then you just gained yourself another hour of access.</li>
+</ol>
+<p>Thus, here comes the second solution, using
+<a href="https://github.com/google/gmail-oauth2-tools/blob/master/python/oauth2.py"><code>oauth2.py</code> from gmail-oauth2-tools</a>,
+and this time, it does return a refresh token, if you use the <em>first mode of operation</em> on the command line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> oauth2 --user<span style="color:#f92672">=</span>xxx@gmail.com <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --client_id<span style="color:#f92672">=</span>1038<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>.apps.googleusercontent.com <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --client_secret<span style="color:#f92672">=</span>VWF<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>OplZ <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --generate_oauth2_token
+</span></span></code></pre></div><p>so after hit <code>Enter</code>, you would get back a url to paste into a browser,
+then hit <code>Enter</code> again, you would need to login and authorize
+the API to access your account, and after that, it will return a url, pasting
+that returned url back into the terminal completes the process.</p>
+<p>Now, in the terminal, standard input and standard output of getting
+access token and refresh token should look somewhat like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ./oauth2.py --user<span style="color:#f92672">=</span>your.gmail --client_id<span style="color:#f92672">=</span>your.client.id --client_secret<span style="color:#f92672">=</span>your.client.secret --generate_oauth2_token
+</span></span><span style="display:flex;"><span>To authorize token, visit this url and follow the directions:
+</span></span><span style="display:flex;"><span>  https://accounts.google.com/long.foo.bar.url.string
+</span></span><span style="display:flex;"><span>Enter verification code: code.you.get.back
+</span></span><span style="display:flex;"><span>Refresh Token: your.refresh.token.is.here 
+</span></span><span style="display:flex;"><span>Access Token: your.access.token.is.here 
+</span></span><span style="display:flex;"><span>Access Token Expiration Seconds: <span style="color:#ae81ff">3599</span>
+</span></span></code></pre></div><p>After you get that refresh token, you are basically done!
+What you need next is the following lines in your <code>~/.mutt/muttrc</code> config file
+(or whichever location you put your muttrc file)</p>
+<pre tabindex="0"><code>set editor = &#34;vim&#34;
+set charset = &#34;utf-8&#34;
+set record = &#39;&#39;
+
+set imap_authenticators=&#34;oauthbearer:xoauth2&#34;
+set imap_oauth_refresh_command=&#34;/you/path/to/oauth2.py --quiet \
+    --user=xxx@gmail.com \
+    --client_id=1038[...].apps.googleusercontent.com \
+    --client_secret=VWF[...]OplZ \
+    --refresh_token=1/Yzm6M[...]oyTum4YA&#34;
+
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+</code></pre><p>Then with some additional config that look more or less like the following,
+you will have a completely functional email client right in your terminal!</p>
+<pre tabindex="0"><code>set from = &#34;your@gmail.com&#34;
+set realname = &#34;your name&#34;
+
+# Imap settings
+set imap_user = &#34;your@gmail.com&#34;
+# set imap_pass = &#34;&lt;mutt-app-specific-password&gt;&#34; # do not need this since we have oauth 2
+
+# Smtp settings
+set smtp_url = &#34;smtps://your@smtp.gmail.com&#34;
+# set smtp_pass = &#34;&lt;mutt-app-specific-password&gt;&#34; # do not need this
+
+# Remote gmail folders
+set folder = &#34;imaps://imap.gmail.com/&#34;
+set spoolfile = &#34;+INBOX&#34;
+set postponed = &#34;+[Gmail]/Drafts&#34;
+set record = &#34;+[Gmail]/Sent Mail&#34;
+set trash = &#34;+[Gmail]/Trash&#34;
+</code></pre><p>Just remember to replace lines with <code>your</code>
+to your actual email address and so on.</p>
+<p>The next time you want to access email, just type <code>mutt</code> on the
+command line and hit <code>Enter</code>, and everything will work! (Hopefully!)</p>
+
+
+<div id="nextprev">
+<a href="/posts/project-01/"><div id="prevart">Previous:<br>Project 01</div></a>
+<a href="/posts/project-03/"><div id="nextart">Next:<br>Project 03</div></a>
+</div>
+
+</article>
+</main>
+
+<footer>
+	<a href="https://xianzhiwang1.github.io/">https://xianzhiwang1.github.io/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</footer>
+
+</body>
+</html>
